@@ -10,6 +10,22 @@
 }
 
 .card {
-  background-color: rgb(206, 203, 203);
+  background-color: #b7a7b4;
   color: #312f2f;
+}
+
+.card-header {
+  padding: 20px;
+  color: rgb(104, 15, 92);
+}
+
+.card-body .descripcion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  padding: 15px;
+}
+
+h4 {
+  grid-column: span 2;
 }
