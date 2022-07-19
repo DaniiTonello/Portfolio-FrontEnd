@@ -1,0 +1,15 @@
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: rgb(206, 203, 203);
+  color: #312f2f;
+}

@@ -18,6 +18,7 @@ import { PerfilComponent } from './components/body/perfil/perfil.component';
 import { ProyectosComponent } from './components/body/proyectos/proyectos.component';
 import { SeccionComponent } from './components/body/seccion/seccion.component';
 import { SkillsComponent } from './components/body/skills/skills.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { SkillsComponent } from './components/body/skills/skills.component';
     PerfilComponent,
     ProyectosComponent,
     SeccionComponent,
-    SkillsComponent
+    SkillsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

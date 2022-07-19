@@ -1,0 +1,9 @@
+img {
+  position: relative;
+  margin-top: -100px;
+  margin-left: 30px;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: 5px solid white;
+}
