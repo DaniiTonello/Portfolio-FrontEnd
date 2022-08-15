@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header/header.component';
-import { LoginComponent } from './components/header/login/login.component';
 import { LogoAPComponent } from './components/header/logo-ap/logo-ap.component';
 import { RedesSocialesComponent } from './components/header/redes-sociales/redes-sociales.component';
 import { BodyComponent } from './components/body/body/body.component';
@@ -19,12 +18,15 @@ import { ProyectosComponent } from './components/body/proyectos/proyectos.compon
 import { SeccionComponent } from './components/body/seccion/seccion.component';
 import { SkillsComponent } from './components/body/skills/skills.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './portfolio/home/home.component';
+import { ButtonLoginComponent } from './components/header/button-login/button-login.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    LoginComponent,
     LogoAPComponent,
     RedesSocialesComponent,
     BodyComponent,
@@ -38,11 +40,15 @@ import { FooterComponent } from './components/footer/footer.component';
     ProyectosComponent,
     SeccionComponent,
     SkillsComponent,
-    FooterComponent
+    FooterComponent,
+    HomeComponent,
+    ButtonLoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

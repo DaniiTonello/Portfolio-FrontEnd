@@ -1,0 +1,16 @@
+nav {
+  width: 100%;
+  background: linear-gradient(to right, #00000027, rgba(255, 255, 255, 0.384));
+  position: relative;
+  z-index: 10;
+}
+
+app-redes-sociales {
+  float: right;
+  margin-top: 15px;
+}
+
+app-button-login {
+  float: right;
+  margin-top: 15px;
+}
