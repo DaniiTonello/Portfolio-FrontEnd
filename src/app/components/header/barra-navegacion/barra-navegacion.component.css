@@ -1,0 +1,21 @@
+* {
+  color: #fff;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+div {
+  width: auto;
+  margin-left: 70px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.navegacion:hover {
+  color: rgb(32, 181, 240);
+}
+
+.navegacion:active {
+  color: aqua;
+}

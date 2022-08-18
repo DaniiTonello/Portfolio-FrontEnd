@@ -1,4 +1,45 @@
-.contenedor {
+* {
+  font-family: sans-serif;
+}
+
+.container {
   width: 100%;
   height: 100vh;
+  border-bottom: 1px solid gray;
+}
+
+.container-foto {
+  width: 60%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+}
+
+.foto {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: -10px -10px;
+  background-color: #8b877c;
+  border: 5px solid rgb(158, 154, 154);
+  position: relative;
+  left: 20%;
+}
+
+.container-description {
+  width: 60%;
+  position: relative;
+  left: 55%;
+  bottom: 52%;
+}
+
+.sobreMi {
+  color: rgba(255, 255, 255, 0.904);
+  font-size: 22px;
+}
+
+p {
+  color: rgba(148, 143, 143, 0.877);
 }

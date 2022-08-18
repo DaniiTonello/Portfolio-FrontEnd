@@ -21,6 +21,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './portfolio/home/home.component';
 import { ButtonLoginComponent } from './components/header/button-login/button-login.component';
+import { BarraNavegacionComponent } from './components/header/barra-navegacion/barra-navegacion.component';
+import { CarouselComponent } from './portfolio/carousel/carousel.component';
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { ButtonLoginComponent } from './components/header/button-login/button-lo
     SkillsComponent,
     FooterComponent,
     HomeComponent,
-    ButtonLoginComponent
+    ButtonLoginComponent,
+    BarraNavegacionComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
