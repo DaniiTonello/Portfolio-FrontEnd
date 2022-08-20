@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonaService } from 'src/app/servicios/persona.service';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  constructor() { }
+  miPersona: any;
 
+  constructor(private datosPersona: PersonaService) { }
   ngOnInit(): void {
+    this.datosPersona.verPersonas().subscribe(data => {
+      this.miPersona = data;
+      console.log(this.miPersona)
+    });
   }
 
 }

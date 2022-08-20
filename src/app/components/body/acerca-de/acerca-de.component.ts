@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GuardsCheckEnd } from '@angular/router';
 
+
 @Component({
   selector: 'app-acerca-de',
   templateUrl: './acerca-de.component.html',

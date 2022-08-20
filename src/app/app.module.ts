@@ -23,7 +23,8 @@ import { HomeComponent } from './portfolio/home/home.component';
 import { ButtonLoginComponent } from './components/header/button-login/button-login.component';
 import { BarraNavegacionComponent } from './components/header/barra-navegacion/barra-navegacion.component';
 import { CarouselComponent } from './portfolio/carousel/carousel.component';
-
+import { HttpClientModule} from '@angular/common/http';
+import { LoginComponent } from './portfolio/login/login.component';
 
 @NgModule({
   declarations: [
@@ -46,13 +47,15 @@ import { CarouselComponent } from './portfolio/carousel/carousel.component';
     HomeComponent,
     ButtonLoginComponent,
     BarraNavegacionComponent,
-    CarouselComponent
+    CarouselComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
