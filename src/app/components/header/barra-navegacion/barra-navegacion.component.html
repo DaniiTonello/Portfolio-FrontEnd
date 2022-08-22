@@ -1,12 +1,21 @@
-<nav>
+<nav class="nav">
   <app-logo-ap></app-logo-ap>
-  <app-button-login></app-button-login>
-  <div>
-    <div class="navegacion">Home</div>
-    <div class="navegacion">Acerca de</div>
-    <div class="navegacion">Education</div>
-    <div class="navegacion">Experience</div>
-    <div class="navegacion">Skills</div>
-    <div class="navegacion">Proyects</div>
+  <div class="contenedor-navegacion">
+    <div data-target="#myCarousel" data-slide-to="1" class="navegacion">
+      Acerca de
+    </div>
+    <div data-target="#myCarousel" data-slide-to="2" class="navegacion">
+      Education
+    </div>
+    <div data-target="#myCarousel" data-slide-to="3" class="navegacion">
+      Experience
+    </div>
+    <div data-target="#myCarousel" data-slide-to="4" class="navegacion">
+      Proyects
+    </div>
+    <div data-target="#myCarousel" data-slide-to="5" class="navegacion">
+      Skills
+    </div>
   </div>
+  <app-button-login></app-button-login>
 </nav>
