@@ -1,11 +1,29 @@
-<div class="container">
+<div class="container-all">
   <div class="container-foto">
     <img class="foto" src="../../../../assets/IMG_20211015_070557.jpg" alt="" />
   </div>
   <div class="container-description">
-    <div class="sobreMi">
-      <h3>Acerca de mi</h3>
-      <p>Estudio desarrollo web FullStack en Argentina Programa</p>
+    <div
+      class="container-titulo"
+      *ngFor="let item of miPersona; let indice = index"
+    >
+      <h2>
+        {{
+          "Hola! Soy " +
+            item.nombre +
+            " " +
+            item.apellido +
+            " y soy Fullstack Developer Jr"
+        }}
+      </h2>
+    </div>
+    <div
+      class="container-subtitulo"
+      *ngFor="let item of miPersona; let indice = index"
+    >
+      <p>
+        {{ item.acercaDe }}
+      </p>
     </div>
   </div>
 </div>

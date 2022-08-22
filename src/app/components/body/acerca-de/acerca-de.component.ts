@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GuardsCheckEnd } from '@angular/router';
+import { PersonaService } from 'src/app/servicios/persona.service';
 
 
 @Component({
@@ -7,11 +8,16 @@ import { GuardsCheckEnd } from '@angular/router';
   templateUrl: './acerca-de.component.html',
   styleUrls: ['./acerca-de.component.css']
 })
+
 export class AcercaDeComponent implements OnInit {
 
-  constructor() { }
+  miPersona: any;
 
+  constructor(private datosPersona: PersonaService) { }
   ngOnInit(): void {
+    this.datosPersona.verPersonas().subscribe(data => {
+      this.miPersona = data;
+    });
   }
 
 }
