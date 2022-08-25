@@ -8,22 +8,82 @@
       *ngFor="let item of miPersona; let indice = index"
     >
       <h2>
-        {{
-          "Hola! Soy " +
-            item.nombre +
-            " " +
-            item.apellido +
-            " y soy Fullstack Developer Jr"
-        }}
+        {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
       </h2>
+      <div
+        class="container-subtitulo"
+        *ngFor="let item of miPersona; let indice = index"
+      >
+        <p>
+          {{ item.acercaDe }}
+        </p>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-toggle="modal"
+        data-target="#myModal"
+        (click)="buscarPersona(indice)"
+      >
+        Editar
+      </button>
     </div>
-    <div
-      class="container-subtitulo"
-      *ngFor="let item of miPersona; let indice = index"
-    >
-      <p>
-        {{ item.acercaDe }}
-      </p>
+  </div>
+  <div class="modal text-dark" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Heading</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            &times;
+          </button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form [formGroup]="formPersona" (ngSubmit)="editarPersona(position)">
+            <div class="form-group">
+              <label for="nombre">Nombre</label>
+              <input
+                formControlName="nombre"
+                type="text"
+                class="form-control"
+                id="nombre"
+                [ngModel]="nombreSelect"
+              />
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido</label>
+              <input
+                formControlName="apellido"
+                type="text"
+                class="form-control"
+                id="apellido"
+                [ngModel]="apellidoSelect"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripcion</label>
+              <input
+                formControlName="acercaDe"
+                type="text"
+                class="form-control"
+                id="descripcion"
+                [ngModel]="acercaDeSelect"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Editar</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>

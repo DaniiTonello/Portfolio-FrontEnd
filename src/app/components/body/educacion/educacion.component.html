@@ -1,51 +1,219 @@
 <div class="container-all">
   <div class="container-descripcion">
     <ul class="list">
-      <li>
-        <ul>
-          <label class="titulo" for="">Programas</label>
-          <li>
-            <p>08/2022 - actualidad</p>
-            <p>Programa Codo a codo - Inicial/Fundamentos de la programacion</p>
-          </li>
-          <li>
-            <p>10/2021 - 08/2022</p>
-            <p>Argentina Programa - Desarrollo web FullStack</p>
-          </li>
-        </ul>
-      </li>
-      <li>
-        <ul>
-          <label class="titulo" for="">Cursos</label>
-          <li>
-            <p>08/2022</p>
-            <p>CourseIt - Node</p>
-          </li>
-          <li>
-            <p>08/2022</p>
-            <p>CourseIt - Javascript</p>
-          </li>
-          <li>
-            <p>07/2022</p>
-            <p>CourseIt - HTML y CSS</p>
-          </li>
-          <li>
-            <p>07/2022</p>
-            <p>CourseIt - Git y Github</p>
-          </li>
-          <li>
-            <p>07/2022</p>
-            <p>CourseIt - Introducción al desarrollo web</p>
-          </li>
-          <li>
-            <p>06/2022</p>
-            <p>
-              TodoCode Academy - Introducción a las Bases de Datos Relacionales
-              (con MySQL)
-            </p>
-          </li>
-        </ul>
-      </li>
+      <div
+        class="container-carrera"
+        *ngFor="let item of miEducacion; let indice = index"
+      >
+        <li>
+          <p>{{ item.duracion }}</p>
+          <p>{{ item.establecimiento }}</p>
+          <p>{{ item.carrera }}</p>
+          <p>{{ item.curso }}</p>
+        </li>
+        <button
+          class="btn btn-success"
+          data-bs-toggle="modal"
+          data-bs-target="#myModalEdit"
+          (click)="buscarEducacion(indice)"
+        >
+          editar
+        </button>
+        <button
+          class="btn btn-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#myModalEliminar"
+          (click)="buscarEducacion(indice)"
+        >
+          eliminar
+        </button>
+      </div>
     </ul>
+  </div>
+  <!-- Modal para add educacion-->
+  <div class="modal" id="myModalAgregar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Agregar una Experiencia</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form [formGroup]="formEducacion" (ngSubmit)="agregarEducacion()">
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Duracion:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="duracion"
+                placeholder="Duracion"
+                name="duracion"
+                [ngModel]="duracionSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Establecimiento:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="establecimiento"
+                placeholder="Establecimiento"
+                name="establecimiento"
+                [ngModel]="establecimientoSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Carrera:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="carrera"
+                placeholder="Carrera"
+                name="carrera"
+                [ngModel]="carreraSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Curso:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="curso"
+                placeholder="Curso"
+                name="curso"
+                [ngModel]="cursoSelect"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para edit expereincia -->
+  <div class="modal" id="myModalEditar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Editar Educacion</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form
+            [formGroup]="formEducacion"
+            (ngSubmit)="editarEducacion(position)"
+          >
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Duracion:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="duracion"
+                placeholder="Duracion"
+                name="duracion"
+                [ngModel]="duracionSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Establecimiento:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="establecimiento"
+                placeholder="establecimiento"
+                name="establecimiento"
+                [ngModel]="establecimientoSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Carrera:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="carrera"
+                placeholder="Carrera"
+                name="carrera"
+                [ngModel]="carreraSelect"
+              />
+            </div>
+            <div class="mb-3 mt-3">
+              <label for="text" class="form-label">Curso:</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="curso"
+                placeholder="Curso"
+                name="curso"
+                [ngModel]="cursoSelect"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">editar</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal para eliminar expereincia -->
+  <div class="modal" id="myModalEliminar">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Eliminar Educacion</h4>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form
+            [formGroup]="formEducacion"
+            (ngSubmit)="eliminarEducacion(position)"
+          >
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+          </form>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

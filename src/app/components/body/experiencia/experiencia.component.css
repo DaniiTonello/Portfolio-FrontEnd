@@ -1,10 +1,7 @@
-.container {
+.container-all {
   width: 100%;
-  min-height: 100vh;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border-bottom: 1px solid gray;
-  padding: 100px;
+  justify-content: center;
   font-family: sans-serif;
+  padding: 30px;
 }

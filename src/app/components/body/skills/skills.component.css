@@ -7,24 +7,37 @@
 }
 
 .list {
+  display: block;
+}
+
+.contenido {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 30px;
 }
 
 .titulo {
-  color: rgba(255, 255, 255, 0.904);
-  font-size: 28px;
-  grid-column: span 2;
-  padding: 20px 0;
+  color: rgb(61, 193, 245);
+  font-size: 40px;
+  grid-column: span 4;
+  padding: 24px 0;
+  text-align: center;
 }
 
-li {
+.fab {
   color: rgb(214, 214, 214);
-  font-size: 16px;
+  font-size: 40px;
   padding: 5px;
 }
 
+.iconos {
+  height: 50px;
+}
+
+p {
+  font-size: 22px;
+}
+
 ul {
-  list-style: none;
+  list-style: disc;
 }
