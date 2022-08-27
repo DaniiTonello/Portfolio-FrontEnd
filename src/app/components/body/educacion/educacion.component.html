@@ -13,206 +13,201 @@
         </li>
         <button
           class="btn btn-success"
-          data-bs-toggle="modal"
-          data-bs-target="#myModalEdit"
+          data-toggle="modal"
+          data-target="#myModalEditar"
           (click)="buscarEducacion(indice)"
         >
           editar
         </button>
         <button
           class="btn btn-danger"
-          data-bs-toggle="modal"
-          data-bs-target="#myModalEliminar"
+          data-toggle="modal"
+          data-target="#myModalEliminar"
           (click)="buscarEducacion(indice)"
         >
           eliminar
         </button>
       </div>
     </ul>
+    <button
+      class="btn btn-dark"
+      data-toggle="modal"
+      data-target="#myModalAgregar"
+    >
+      agregar
+    </button>
   </div>
-  <!-- Modal para add educacion-->
-  <div class="modal" id="myModalAgregar">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Agregar una Experiencia</h4>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-          ></button>
-        </div>
+</div>
+<!-- Modal para agregar educacion-->
+<div class="modal text-dark" id="myModalAgregar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar educacion</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form [formGroup]="formEducacion" (ngSubmit)="agregarEducacion()">
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Duracion:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="duracion"
-                placeholder="Duracion"
-                name="duracion"
-                [ngModel]="duracionSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Establecimiento:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="establecimiento"
-                placeholder="Establecimiento"
-                name="establecimiento"
-                [ngModel]="establecimientoSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Carrera:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="carrera"
-                placeholder="Carrera"
-                name="carrera"
-                [ngModel]="carreraSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Curso:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="curso"
-                placeholder="Curso"
-                name="curso"
-                [ngModel]="cursoSelect"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">Agregar</button>
-          </form>
-        </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formEducacion" (ngSubmit)="agregarEducacion()">
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Duracion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="duracion"
+              placeholder="Duracion"
+              name="duracion"
+              [ngModel]="duracion"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Establecimiento:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="establecimiento"
+              placeholder="Establecimiento"
+              name="establecimiento"
+              [ngModel]="establecimiento"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Carrera:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="carrera"
+              placeholder="Carrera"
+              name="carrera"
+              [ngModel]="carrera"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Curso:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="curso"
+              placeholder="Curso"
+              name="curso"
+              [ngModel]="curso"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-            Close
-          </button>
-        </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Modal para edit expereincia -->
-  <div class="modal" id="myModalEditar">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Editar Educacion</h4>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-          ></button>
-        </div>
+<!-- Modal para edit expereincia -->
+<div class="modal text-dark" id="myModalEditar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Editar Educacion</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form
-            [formGroup]="formEducacion"
-            (ngSubmit)="editarEducacion(position)"
-          >
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Duracion:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="duracion"
-                placeholder="Duracion"
-                name="duracion"
-                [ngModel]="duracionSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Establecimiento:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="establecimiento"
-                placeholder="establecimiento"
-                name="establecimiento"
-                [ngModel]="establecimientoSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Carrera:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="carrera"
-                placeholder="Carrera"
-                name="carrera"
-                [ngModel]="carreraSelect"
-              />
-            </div>
-            <div class="mb-3 mt-3">
-              <label for="text" class="form-label">Curso:</label>
-              <input
-                type="text"
-                class="form-control"
-                formControlName="curso"
-                placeholder="Curso"
-                name="curso"
-                [ngModel]="cursoSelect"
-              />
-            </div>
-            <button type="submit" class="btn btn-primary">editar</button>
-          </form>
-        </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formEducacion"
+          (ngSubmit)="editarEducacion(position)"
+        >
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Duracion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="duracion"
+              placeholder="Duracion"
+              name="duracion"
+              [ngModel]="duracionSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Establecimiento:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="establecimiento"
+              placeholder="establecimiento"
+              name="establecimiento"
+              [ngModel]="establecimientoSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Carrera:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="carrera"
+              placeholder="Carrera"
+              name="carrera"
+              [ngModel]="carreraSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Curso:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="curso"
+              placeholder="Curso"
+              name="curso"
+              [ngModel]="cursoSelect"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">editar</button>
+        </form>
+      </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-            Close
-          </button>
-        </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Modal para eliminar expereincia -->
-  <div class="modal" id="myModalEliminar">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h4 class="modal-title">Eliminar Educacion</h4>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-          ></button>
-        </div>
+<!-- Modal para eliminar expereincia -->
+<div class="modal text-dark" id="myModalEliminar">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar Educacion?</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
 
-        <!-- Modal body -->
-        <div class="modal-body">
-          <form
-            [formGroup]="formEducacion"
-            (ngSubmit)="eliminarEducacion(position)"
-          >
-            <button type="submit" class="btn btn-primary">Eliminar</button>
-          </form>
-        </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formEducacion"
+          (ngSubmit)="eliminarEducacion(position)"
+        >
+          <button type="submit" class="btn btn-primary">eliminar</button>
+        </form>
+      </div>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-            Close
-          </button>
-        </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
       </div>
     </div>
   </div>

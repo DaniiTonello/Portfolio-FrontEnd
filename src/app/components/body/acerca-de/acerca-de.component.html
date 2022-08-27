@@ -10,6 +10,9 @@
       <h2>
         {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
       </h2>
+      <h3>
+        {{ "Soy de " + item.provincia + ", " + item.pais }}
+      </h3>
       <div
         class="container-subtitulo"
         *ngFor="let item of miPersona; let indice = index"

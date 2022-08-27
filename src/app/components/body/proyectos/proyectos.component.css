@@ -5,3 +5,29 @@
   font-family: sans-serif;
   padding: 30px;
 }
+
+.list {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 30px;
+}
+
+.container-proyecto {
+  color: rgba(255, 255, 255, 0.904);
+  font-size: 28px;
+  grid-column: span 2;
+  padding: 20px 0;
+}
+
+li {
+  color: rgb(214, 214, 214);
+  padding: 10px;
+  font-size: 16px;
+}
+
+img {
+  width: 200px;
+  height: 100px;
+  border: 1px solid rgb(6, 108, 167);
+  object-fit: cover;
+}

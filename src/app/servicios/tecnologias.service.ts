@@ -16,15 +16,19 @@ export class TecnologiasService {
     return this.httpTecnologias.get(this.tecURL+'ver');
   }
 
-  public editarTecnologias(tecnologias: Tecnologias): Observable<any>{
-    return this.httpTecnologias.put<any>(this.tecURL+'actualizar', tecnologias);
-  } 
+  public buscarTecnologias(id: number): Observable<any>{
+    return this.httpTecnologias.get<any>(this.tecURL+`buscar/${id}`);
+  }
 
   public agregarTecnologias(tecnologias: Tecnologias): Observable<any>{
     return this.httpTecnologias.post<any>(this.tecURL+'new', tecnologias);
   } 
 
-  public eliminarTecnologias(tecnologias: Tecnologias): Observable<any>{
-    return this.httpTecnologias.delete<any>(this.tecURL+'delete{$id}');
+  public editarTecnologias(tecnologias: Tecnologias): Observable<any>{
+    return this.httpTecnologias.put<any>(this.tecURL+'actualizar', tecnologias);
   } 
+
+  public eliminarTecnologias(id: number): Observable<any> {
+    return this.httpTecnologias.delete<any>(this.tecURL + `delete/${id}`);
+  }
 }

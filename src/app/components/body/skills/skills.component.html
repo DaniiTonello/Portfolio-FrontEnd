@@ -1,82 +1,318 @@
 <div class="container-all">
-  <div class="container-descripcion">
+  <div class="container-tecnologias">
     <ul class="list">
-      <div>
-        <h3 class="titulo" for="">Hard Skills</h3>
+      <h3 class="titulo" for="">Hard Skills</h3>
+      <div *ngFor="let item of misTecnologias; let indice = index">
         <ul class="contenido">
           <li>
-            <i class="fab fa-html5"></i>
+            <img class="iconos" src="{{ item.tecnologia }}" alt="" />
+            <p>{{ item.nivelExperiencia }}</p>
           </li>
-          <li>
-            <i class="fab fa-css3-alt"></i>
-          </li>
-          <li>
-            <i class="fab fa-js-square"></i>
-          </li>
-          <li>
-            <i
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-bootstrap-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M6.375 7.125V4.658h1.78c.973 0 1.542.457 1.542 1.237 0 .802-.604 1.23-1.764 1.23H6.375zm0 3.762h1.898c1.184 0 1.81-.48 1.81-1.377 0-.885-.65-1.348-1.886-1.348H6.375v2.725z"
-                />
-                <path
-                  d="M4.002 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-8zm1.06 12V3.545h3.399c1.587 0 2.543.809 2.543 2.11 0 .884-.65 1.675-1.483 1.816v.1c1.143.117 1.904.931 1.904 2.033 0 1.488-1.084 2.396-2.888 2.396H5.062z"
-                /></svg
-            ></i>
-          </li>
-          <li>
-            <i class="fab fa-node"></i>
-          </li>
-          <li>
-            <i class="fab fa-node-js"></i>
-          </li>
-          <li>
-            <i class="fab fa-angular"></i>
-          </li>
-          <li>
-            <i class="fab fa-java"></i>
-          </li>
-          <li>
-            <img class="iconos" src="../../../../assets/spring.png" alt="" />
-          </li>
-          <li>
-            <img class="iconos" src="../../../../assets/mysql.png" alt="" />
-          </li>
-        </ul>
-      </div>
-      <h3 class="titulo" for="">Soft Skills</h3>
-      <div>
-        <ul class="contenido">
-          <li>
-            <p>Trabajo en equipo</p>
-          </li>
-          <li>
-            <p>Responsabilidad individual</p>
-          </li>
-          <li>
-            <p>Empatía</p>
-          </li>
-          <li>
-            <p>Resolución de problemas</p>
-          </li>
-          <li>
-            <p>Compromiso</p>
-          </li>
-          <li>
-            <p>Motivación</p>
-          </li>
-          <li>
-            <p>Perseverancia</p>
-          </li>
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#myModalEditarTecnologias"
+            (click)="buscarTecnologias(indice)"
+          >
+            editar
+          </button>
+          <button
+            class="btn btn-danger"
+            data-toggle="modal"
+            data-target="#myModalEliminarTecnologias"
+            (click)="buscarTecnologias(indice)"
+          >
+            eliminar
+          </button>
         </ul>
       </div>
     </ul>
+    <button
+      class="btn btn-dark"
+      data-toggle="modal"
+      data-target="#myModalAgregarTecnologias"
+    >
+      agregar
+    </button>
+  </div>
+
+  <div class="container-habilidades">
+    <ul class="list">
+      <h3 class="titulo" for="">Soft Skills</h3>
+      <div *ngFor="let habilidad of misHabilidades; let ubicacion = index">
+        <ul class="contenido">
+          <li>
+            <p>{{ habilidad.habilidad }}</p>
+          </li>
+          <button
+            class="btn btn-success"
+            data-toggle="modal"
+            data-target="#myModalEditarHabilidades"
+            (click)="buscarHabilidades(ubicacion)"
+          >
+            editar
+          </button>
+          <button
+            class="btn btn-danger"
+            data-toggle="modal"
+            data-target="#myModalEliminarHabilidades"
+            (click)="buscarHabilidades(ubicacion)"
+          >
+            eliminar
+          </button>
+        </ul>
+      </div>
+    </ul>
+    <button
+      class="btn btn-dark"
+      data-toggle="modal"
+      data-target="#myModalAgregarHabilidades"
+    >
+      agregar
+    </button>
+  </div>
+</div>
+
+<!-- Modal para agregar Tecnologias-->
+<div class="modal text-dark" id="myModalAgregarTecnologias">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar nueva tecnologia:</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formTecnologias" (ngSubmit)="agregarTecnologias()">
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Logo tecnologia:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tecnologia"
+              placeholder="Tecnologia"
+              name="tecnologia"
+              [ngModel]="tecnologia"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Nivel de experiencia:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="nivelExperiencia"
+              placeholder="Nivel de experiencia"
+              name="nivelExperiencia"
+              [ngModel]="nivelExperiencia"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar tecnologias -->
+<div class="modal text-dark" id="myModalEditarTecnologias">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Editar tecnologia</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formTecnologias"
+          (ngSubmit)="editarTecnologias(position)"
+        >
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Logo tecnologia:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tecnologia"
+              placeholder="Tecnologia"
+              name="tecnologia"
+              [ngModel]="tecnologiaSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label"
+              >Nuevo nivel de experiencia:</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="nivelExperiencia"
+              placeholder="Nivel de experiencia"
+              name="nivelExperiencia"
+              [ngModel]="nivelExperienciaSelect"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">editar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para eliminar tecnologia -->
+<div class="modal text-dark" id="myModalEliminarTecnologias">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar habilidad?</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formTecnologias"
+          (ngSubmit)="eliminarTecnologias(position)"
+        >
+          <button type="submit" class="btn btn-primary">eliminar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar Habilidades-->
+<div class="modal text-dark" id="myModalAgregarHabilidades">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar nueva habilidad</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formHabilidades" (ngSubmit)="agregarHabilidades()">
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Habilidad</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="habilidad"
+              placeholder="habilidad"
+              name="habilidad"
+              [ngModel]="habilidad"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar habilidades -->
+<div class="modal text-dark" id="myModalEditarHabilidades">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Editar habilidad</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formHabilidades"
+          (ngSubmit)="editarHabilidades(position)"
+        >
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Habilidad:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="habilidad"
+              placeholder="habilidad"
+              name="habilidad"
+              [ngModel]="habilidadSelect"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary">editar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para eliminar tecnologia -->
+<div class="modal text-dark" id="myModalEliminarHabilidades">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar habilidad?</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formHabilidades"
+          (ngSubmit)="eliminarHabilidades(position)"
+        >
+          <button type="submit" class="btn btn-primary">eliminar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
   </div>
 </div>

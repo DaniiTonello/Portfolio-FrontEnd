@@ -16,15 +16,19 @@ export class EducacionService {
     return this.httpEducacion.get(this.eduURL+'ver');
   }
 
-  public editarEducacion(educacion: Educacion): Observable<any>{
-    return this.httpEducacion.put<any>(this.eduURL+'actualizar', educacion);
-  } 
+  public buscarEducacion(id: number): Observable<any>{
+    return this.httpEducacion.get<any>(this.eduURL+`buscar/${id}`);
+  }
 
   public agregarEducacion(educacion: Educacion): Observable<any>{
     return this.httpEducacion.post<any>(this.eduURL+'new', educacion);
   } 
 
-  public eliminarEducacion(educacion: Educacion): Observable<any>{
-    return this.httpEducacion.delete<any>(this.eduURL+'delete{$id}');
+  public editarEducacion(educacion: Educacion): Observable<any>{
+    return this.httpEducacion.put<any>(this.eduURL+'actualizar', educacion);
   } 
+  
+  public eliminarEducacion(id: number): Observable<any> {
+    return this.httpEducacion.delete<any>(this.eduURL + `delete/${id}`);
+  }
 }

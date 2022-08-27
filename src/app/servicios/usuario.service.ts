@@ -8,23 +8,27 @@ import { Usuario } from '../modelo/usuario';
 })
 export class UsuarioService {
 
-  uURL= "http://localhost:8080/tecnologias/";
+  uURL= "http://localhost:8080/usuario/";
 
-  constructor(private httpTecnologias: HttpClient) { }
+  constructor(private httpUsuario: HttpClient) { }
 
-  public verTecnologias(): Observable<any>{
-    return this.httpTecnologias.get(this.uURL+'ver');
+  public verUsuario(): Observable<any>{
+    return this.httpUsuario.get(this.uURL+'ver');
   }
 
-  public editarTecnologias(tecnologias: Tecnologias): Observable<any>{
-    return this.httpTecnologias.put<any>(this.uURL+'actualizar', tecnologias);
+  public buscarUsuario(id: number): Observable<any>{
+    return this.httpUsuario.get<any>(this.uURL+`buscar/${id}`);
+  }
+
+  public agregarUsuario(usuario: Usuario): Observable<any>{
+    return this.httpUsuario.post<any>(this.uURL+'new', usuario);
   } 
 
-  public agregarTecnologias(tecnologias: Tecnologias): Observable<any>{
-    return this.httpTecnologias.post<any>(this.uURL+'new', tecnologias);
+  public editarUsuario(usuario: Usuario): Observable<any>{
+    return this.httpUsuario.put<any>(this.uURL+'actualizar', usuario);
   } 
 
-  public eliminarTecnologias(tecnologias: Tecnologias): Observable<any>{
-    return this.httpTecnologias.delete<any>(this.uURL+'delete{$id}');
+  public eliminarUsuario(id: number): Observable<any> {
+    return this.httpUsuario.delete<any>(this.uURL + `delete/${id}`);
   }
 }

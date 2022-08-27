@@ -12,6 +12,10 @@ export class EducacionComponent implements OnInit {
 
   miEducacion: any;
   formEducacion: FormGroup;
+  establecimiento: string = "";
+  carrera: string = "";
+  curso: string = "";
+  duracion: string = "";
 
   constructor(private datosEducacion: EducacionService, private formBuilder: FormBuilder) { 
     this.formEducacion = this.formBuilder.group({
@@ -31,23 +35,23 @@ export class EducacionComponent implements OnInit {
 
   agregarEducacion(){
 
-    this.establecimientoSelect = this.miEducacion.value;
-    this.carreraSelect = this.miEducacion.value;
-    this.cursoSelect = this.miEducacion.value;
-    this.duracionSelect = this.miEducacion.value;
+    this.establecimiento = this.formEducacion.value.establecimiento;
+    this.carrera = this.formEducacion.value.carrera;
+    this.curso = this.formEducacion.value.curso;
+    this.duracion = this.formEducacion.value.duracion;
   
     let educacion: Educacion = {
-        "establecimiento": this.formEducacion.value,
-        "carrera": this.formEducacion.value,
-        "curso": this.formEducacion.value,
-        "duracion": this.formEducacion.value
+        "establecimiento": this.establecimiento,
+        "carrera": this.carrera,
+        "curso": this.curso,
+        "duracion": this.duracion
       
     }
 
     this.datosEducacion.agregarEducacion(educacion).subscribe(
       data =>{
         //mostramos una alerta
-        alert("Informacion editada con exito")
+        alert("Informacion agregada con exito")
 
         location.href="/"
       }
@@ -91,20 +95,17 @@ export class EducacionComponent implements OnInit {
 
   }
 
-  
-
-  
 
   eliminarEducacion(item: number){
-
-    this.datosEducacion.agregarEducacion(this.miEducacion[item].id).subscribe(
+    //El método eliminar espera recibir una id o sea que es el dato que tenemos que pasarle
+    this.datosEducacion.eliminarEducacion(this.miEducacion[item].id).subscribe(
       data =>{
-        alert("Educacion eliminada con exito")
+
+        alert("Informacion eliminada con exito")
 
         location.href="/"
       }
     );
-
   }
 
 }

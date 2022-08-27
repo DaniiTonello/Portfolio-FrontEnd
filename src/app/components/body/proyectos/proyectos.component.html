@@ -1,10 +1,260 @@
 <div class="container-all">
-  <div class="proyectos">
-    <ul>
-      <li>
-        <p>2021 - 2022</p>
-        <p>Portfolio de Argentina Programa</p>
-      </li>
+  <div class="container-descripcion">
+    <ul class="list">
+      <div
+        class="container-proyecto"
+        *ngFor="let item of misProyectos; let indice = index"
+      >
+        <li>
+          <img src="{{ item.imagenProyecto }}" alt="" />
+          <h3>{{ item.proyecto }}</h3>
+          <p>{{ item.descripcion }}</p>
+          <p>{{ item.empresa }}</p>
+          <p>{{ item.duracion }}</p>
+          <p>{{ item.tecnologias }}</p>
+        </li>
+        <button
+          class="btn btn-success"
+          data-toggle="modal"
+          data-target="#myModalEditarProyectos"
+          (click)="buscarProyectos(indice)"
+        >
+          editar
+        </button>
+        <button
+          class="btn btn-danger"
+          data-toggle="modal"
+          data-target="#myModalEliminarProyectos"
+          (click)="buscarProyectos(indice)"
+        >
+          eliminar
+        </button>
+      </div>
     </ul>
+    <button
+      class="btn btn-dark"
+      data-toggle="modal"
+      data-target="#myModalAgregarProyectos"
+    >
+      agregar
+    </button>
+  </div>
+</div>
+<!-- Modal para agregar Proyectos-->
+<div class="modal text-dark" id="myModalAgregarProyectos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Agregar nuevo proyecto</h4>
+        <button type="button" class="close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form [formGroup]="formProyectos" (ngSubmit)="agregarProyectos()">
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Nombre proyecto:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="proyecto"
+              placeholder="Proyecto"
+              name="proyecto"
+              [ngModel]="proyecto"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Descripcion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="descripcion"
+              placeholder="Descripcion"
+              name="descripcion"
+              [ngModel]="descripcion"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Empresa:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="empresa"
+              placeholder="Empresa"
+              name="empresa"
+              [ngModel]="empresa"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Duracion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="duracion"
+              placeholder="Duracion"
+              name="duracion"
+              [ngModel]="duracion"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Tecnologias utilizadas:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tecnologias"
+              placeholder="Tecnologias"
+              name="tecnologias"
+              [ngModel]="tecnologias"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Imagen de muestra:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="imagenProyecto"
+              placeholder="ImagenProyecto"
+              name="imagenProyecto"
+              [ngModel]="imagenProyecto"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para editar proyectos -->
+<div class="modal text-dark" id="myModalEditarProyectos">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Editar proyecto</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formProyectos"
+          (ngSubmit)="editarProyectos(position)"
+        >
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Nombre proyecto:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="proyecto"
+              placeholder="Proyecto"
+              name="proyecto"
+              [ngModel]="proyectoSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Descripcion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="descripcion"
+              placeholder="Descripcion"
+              name="descripcion"
+              [ngModel]="descripcionSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Empresa:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="empresa"
+              placeholder="Empresa"
+              name="empresa"
+              [ngModel]="empresaSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Duracion:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="duracion"
+              placeholder="Duracion"
+              name="duracion"
+              [ngModel]="duracionSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Tecnologias utilizadas:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="tecnologias"
+              placeholder="Tecnologias"
+              name="tecnologias"
+              [ngModel]="tecnologiasSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Imagen de muestra:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="imagenProyecto"
+              placeholder="ImagenProyecto"
+              name="imagenProyecto"
+              [ngModel]="imagenProyectoSelect"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">editar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para eliminar proyecto -->
+<div class="modal text-dark" id="myModalEliminarProyecto">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Eliminar proyecto?</h4>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form
+          [formGroup]="formProyectos"
+          (ngSubmit)="eliminarProyectos(position)"
+        >
+          <button type="submit" class="btn btn-primary">eliminar</button>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
   </div>
 </div>

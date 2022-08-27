@@ -1,6 +1,6 @@
 .container-all {
   width: 100%;
-  display: flex;
+  display: flexbox;
   justify-content: center;
   font-family: sans-serif;
   padding: 30px;
@@ -39,5 +39,9 @@ p {
 }
 
 ul {
-  list-style: disc;
+  list-style: none;
+}
+
+.btn {
+  height: 40px;
 }

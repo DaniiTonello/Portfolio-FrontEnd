@@ -6,6 +6,5 @@ export class Tecnologias {
     constructor(tecnologia: string,nivelExperiencia: string) {
         this.tecnologia = tecnologia;
         this.nivelExperiencia = nivelExperiencia;
-        
     }
 }

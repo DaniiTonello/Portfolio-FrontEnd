@@ -9,7 +9,7 @@
 .list {
   display: grid;
   grid-template-columns: 2fr 2fr;
-  gap: 15px;
+  gap: 30px;
 }
 
 .titulo {
@@ -23,8 +23,4 @@ li {
   color: rgb(214, 214, 214);
   padding: 10px;
   font-size: 16px;
-}
-
-ul {
-  list-style: none;
 }

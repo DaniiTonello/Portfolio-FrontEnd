@@ -12,19 +12,24 @@ export class ProyectosService {
 
   constructor(private httpProyectos: HttpClient) { }
 
-  public verExperienciaLaboral(): Observable<any>{
+  public verProyectos(): Observable<any>{
     return this.httpProyectos.get(this.proyURL+'ver');
   }
 
-  public editarProyectos(proyectos: Proyectos): Observable<any>{
-    return this.httpProyectos.put<any>(this.proyURL+'actualizar', proyectos);
-  } 
+  public buscarProyectos(id: number): Observable<any>{
+    return this.httpProyectos.get<any>(this.proyURL+`buscar/${id}`);
+  }
 
   public agregarProyectos(proyectos: Proyectos): Observable<any>{
     return this.httpProyectos.post<any>(this.proyURL+'new', proyectos);
   } 
 
-  public eliminarProyectos(proyectos: Proyectos): Observable<any>{
-    return this.httpProyectos.delete<any>(this.proyURL+'delete{$id}');
+  public editarProyectos(proyectos: Proyectos): Observable<any>{
+    return this.httpProyectos.put<any>(this.proyURL+'actualizar', proyectos);
   } 
+
+  public eliminarProyectos(id: number): Observable<any> {
+    return this.httpProyectos.delete<any>(this.proyURL + `delete/${id}`);
+  }
+
 }
