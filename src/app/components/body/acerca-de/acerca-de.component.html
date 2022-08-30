@@ -1,25 +1,27 @@
 <div class="container-all">
-  <div class="container-foto">
-    <img class="foto" src="../../../../assets/IMG_20211015_070557.jpg" alt="" />
-  </div>
   <div class="container-description">
     <div
-      class="container-titulo"
+      class="container-general"
       *ngFor="let item of miPersona; let indice = index"
     >
-      <h2>
-        {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
-      </h2>
-      <h3>
-        {{ "Soy de " + item.provincia + ", " + item.pais }}
-      </h3>
-      <div
-        class="container-subtitulo"
-        *ngFor="let item of miPersona; let indice = index"
-      >
-        <p>
-          {{ item.acercaDe }}
-        </p>
+      <div class="container-foto">
+        <img class="foto" src="{{ item.imagen }}" alt="" />
+      </div>
+      <div class="container-titulo">
+        <h2>
+          {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
+        </h2>
+        <h3>
+          {{ "Soy de " + item.provincia + ", " + item.pais }}
+        </h3>
+        <div
+          class="container-subtitulo"
+          *ngFor="let item of miPersona; let indice = index"
+        >
+          <p>
+            {{ item.acercaDe }}
+          </p>
+        </div>
       </div>
       <button
         type="button"

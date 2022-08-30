@@ -20,7 +20,8 @@ export class AcercaDeComponent implements OnInit {
     this.formPersona = this.formBuilder.group({
       nombre: '',
       apellido:'',
-      acercaDe:''
+      acercaDe:'',
+      imagen: ''
     });
   }
 
@@ -36,12 +37,14 @@ export class AcercaDeComponent implements OnInit {
   nombreSelect = "";
   apellidoSelect = "";
   acercaDeSelect = "";
+  imagenSelect = "";
   buscarPersona(item: number){
     //Le pasamos los valores a las variables de arriba
     this.position = item;
     this.nombreSelect = this.miPersona[this.position].nombre;
     this.apellidoSelect = this.miPersona[this.position].apellido;
     this.acercaDeSelect = this.miPersona[this.position].acercaDe;
+    this.imagenSelect = this.miPersona[this.position].imagen;
   }
 
   editarPersona(item: number){
@@ -51,7 +54,8 @@ export class AcercaDeComponent implements OnInit {
       "id": this.miPersona[item].id,
       "nombre": this.formPersona.value.nombre,
       "apellido": this.formPersona.value.apellido,
-      "acercaDe": this.formPersona.value.acercaDe
+      "acercaDe": this.formPersona.value.acercaDe,
+      "imagen": this.formPersona.value.imagen
     }
 
     this.datosPersona.editarPersona(persona).subscribe(
