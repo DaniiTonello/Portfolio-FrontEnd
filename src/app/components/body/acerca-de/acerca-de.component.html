@@ -1,21 +1,22 @@
 <div class="container-all">
-  <div class="container-description">
-    <div
-      class="container-general"
-      *ngFor="let item of miPersona; let indice = index"
-    >
+  <div class="container-general">
+    <div *ngFor="let item of miPersona; let indice = index">
       <div class="container-foto">
         <img class="foto" src="{{ item.imagen }}" alt="" />
       </div>
-      <div class="container-titulo">
-        <h2>
-          {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
-        </h2>
-        <h3>
-          {{ "Soy de " + item.provincia + ", " + item.pais }}
-        </h3>
+      <div class="contenido">
+        <div>
+          <h2 class="nombre-apellido">
+            {{ "Hola! Soy " + item.nombre + " " + item.apellido }}
+          </h2>
+        </div>
+        <div>
+          <h3 class="pais-provincia">
+            {{ "Soy de " + item.provincia + ", " + item.pais }}
+          </h3>
+        </div>
         <div
-          class="container-subtitulo"
+          class="container-description"
           *ngFor="let item of miPersona; let indice = index"
         >
           <p>
@@ -23,15 +24,18 @@
           </p>
         </div>
       </div>
-      <button
-        type="button"
-        class="btn btn-primary"
-        data-toggle="modal"
-        data-target="#myModal"
-        (click)="buscarPersona(indice)"
-      >
-        Editar
-      </button>
+      <div class="button-edit">
+        <button
+          type="button"
+          class="btn btn-edit-modal"
+          data-toggle="modal"
+          data-target="#myModal"
+          (click)="buscarPersona(indice)"
+          *ngIf="isLogged"
+        >
+          Editar
+        </button>
+      </div>
     </div>
   </div>
   <div class="modal text-dark" id="myModal">
@@ -39,7 +43,7 @@
       <div class="modal-content">
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Editar información</h4>
           <button type="button" class="close" data-dismiss="modal">
             &times;
           </button>
@@ -69,6 +73,26 @@
               />
             </div>
             <div class="form-group">
+              <label for="pais">País</label>
+              <input
+                formControlName="pais"
+                type="text"
+                class="form-control"
+                id="pais"
+                [ngModel]="paisSelect"
+              />
+            </div>
+            <div class="form-group">
+              <label for="provincia">Provincia</label>
+              <input
+                formControlName="provincia"
+                type="text"
+                class="form-control"
+                id="provincia"
+                [ngModel]="provinciaSelect"
+              />
+            </div>
+            <div class="form-group">
               <label for="descripcion">Descripcion</label>
               <input
                 formControlName="acercaDe"
@@ -78,13 +102,23 @@
                 [ngModel]="acercaDeSelect"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Editar</button>
+            <div class="form-group">
+              <label for="imagen">URL de foto de perfil</label>
+              <input
+                formControlName="imagen"
+                type="text"
+                class="form-control"
+                id="imagen"
+                [ngModel]="imagenSelect"
+              />
+            </div>
+            <button type="submit" class="boton-editar btn">Editar</button>
           </form>
         </div>
 
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">
+          <button type="button" class="boton-close btn" data-dismiss="modal">
             Close
           </button>
         </div>

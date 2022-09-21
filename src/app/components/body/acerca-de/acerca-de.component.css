@@ -1,18 +1,17 @@
 .container-all {
-  display: block;
-  justify-content: center;
   font-family: sans-serif;
 }
 
+.container-general {
+}
+
 .container-foto {
-  display: flex;
-  justify-content: center;
-  padding: 30px;
+  padding: 10px;
 }
 
 .foto {
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   object-fit: cover;
   object-position: -10px -10px;
@@ -20,18 +19,96 @@
   border: 5px solid rgb(158, 154, 154);
 }
 
+.nombre-apellido {
+  font-size: 70px;
+  -webkit-text-stroke: 3px rgb(71, 181, 231);
+  color: transparent;
+}
+
+.pais-provincia {
+  font-size: 45px;
+}
+
 .container-description {
-  display: block;
-  padding: 30px;
-  text-align: center;
+  width: 40%;
+  height: auto;
+  font-size: 30px;
 }
 
-.container-titulo {
-  color: rgb(255, 255, 255);
-  font-size: 22px;
+.button-edit {
+  font-family: sans-serif;
 }
 
-.container-subtitulo {
-  color: rgba(255, 255, 255, 0.733);
-  font-size: 20px;
+.btn-edit-modal {
+  background-color: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.btn-edit-modal:hover {
+  background-color: rgb(32, 181, 240);
+}
+
+.modal-dialog {
+  position: relative;
+  top: 50px;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.603);
+  border-radius: 10px;
+}
+
+.modal-header,
+.modal-footer {
+  background-color: rgba(253, 253, 253, 0.363);
+  border: none;
+}
+
+.modal-title {
+  color: rgb(25, 151, 151);
+  font-weight: bold;
+}
+
+.boton-editar {
+  position: relative;
+  left: 0;
+  font-weight: bold;
+  border: 2px solid rgb(25, 151, 151);
+  background-color: #c2beb5c4;
+  color: rgb(25, 151, 151);
+}
+
+.boton-editar:hover {
+  background-color: rgb(25, 151, 151);
+  color: white;
+}
+
+.boton-editar:active {
+  background-color: rgb(25, 151, 151);
+  color: white;
+}
+
+.btn {
+  height: 40px;
+  position: relative;
+}
+
+.boton-close {
+  position: relative;
+  left: 0;
+  font-weight: bold;
+  border: 2px solid rgb(25, 151, 151);
+  background-color: #c2beb5c4;
+  color: rgb(25, 151, 151);
+}
+
+.boton-close:hover {
+  background-color: #cc120bc9;
+  color: rgb(252, 252, 252);
+  border: 2px solid #cc120bc9;
 }

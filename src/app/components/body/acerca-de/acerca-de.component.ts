@@ -3,6 +3,7 @@ import { GuardsCheckEnd } from '@angular/router';
 import { PersonaService } from 'src/app/servicios/persona.service';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Persona } from 'src/app/modelo/persona';
+import { TokenService } from 'src/app/servicios/token.service';
 
 
 @Component({
@@ -16,10 +17,16 @@ export class AcercaDeComponent implements OnInit {
   miPersona: any;
   formPersona: FormGroup;
 
-  constructor(private datosPersona: PersonaService, private formBuilder: FormBuilder) { 
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+
+  constructor(private datosPersona: PersonaService, private formBuilder: FormBuilder, private tokenService: TokenService) { 
     this.formPersona = this.formBuilder.group({
       nombre: '',
       apellido:'',
+      pais: '',
+      provincia: '',
       acercaDe:'',
       imagen: ''
     });
@@ -29,6 +36,12 @@ export class AcercaDeComponent implements OnInit {
     this.datosPersona.verPersonas().subscribe(data => {
       this.miPersona = data;
     });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   //este auxiliar lo usaremos para recoger el elemento que vamos a selecionar
@@ -36,6 +49,8 @@ export class AcercaDeComponent implements OnInit {
   //con esta variable recogeremos la info de los campos
   nombreSelect = "";
   apellidoSelect = "";
+  paisSelect = "";
+  provinciaSelect = "";
   acercaDeSelect = "";
   imagenSelect = "";
   buscarPersona(item: number){
@@ -43,6 +58,8 @@ export class AcercaDeComponent implements OnInit {
     this.position = item;
     this.nombreSelect = this.miPersona[this.position].nombre;
     this.apellidoSelect = this.miPersona[this.position].apellido;
+    this.paisSelect = this.miPersona[this.position].pais;
+    this.provinciaSelect = this.miPersona[this.position].provincia;
     this.acercaDeSelect = this.miPersona[this.position].acercaDe;
     this.imagenSelect = this.miPersona[this.position].imagen;
   }
@@ -54,6 +71,8 @@ export class AcercaDeComponent implements OnInit {
       "id": this.miPersona[item].id,
       "nombre": this.formPersona.value.nombre,
       "apellido": this.formPersona.value.apellido,
+      "pais": this.formPersona.value.pais,
+      "provincia": this.formPersona.value.provincia,
       "acercaDe": this.formPersona.value.acercaDe,
       "imagen": this.formPersona.value.imagen
     }

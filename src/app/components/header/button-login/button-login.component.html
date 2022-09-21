@@ -1,1 +1,2 @@
-<a class="login" href="/login">LOG IN</a>
+<a class="login" href="/login" (click)="login()" *ngIf="!isLogged">LOG IN</a>
+<a class="login" href="/login" (click)="onLogOut()" *ngIf="isLogged">LOG OUT</a>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { EducacionService } from 'src/app/servicios/educacion.service';
 import { Educacion } from 'src/app/modelo/educacion';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-educacion',
@@ -17,7 +18,11 @@ export class EducacionComponent implements OnInit {
   curso: string = "";
   duracion: string = "";
 
-  constructor(private datosEducacion: EducacionService, private formBuilder: FormBuilder) { 
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+
+  constructor(private datosEducacion: EducacionService, private formBuilder: FormBuilder, private tokenService: TokenService) { 
     this.formEducacion = this.formBuilder.group({
       establecimiento:'',
       carrera: '',
@@ -31,6 +36,12 @@ export class EducacionComponent implements OnInit {
     this.datosEducacion.verEducacion().subscribe(data => {
       this.miEducacion = data;
     });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   agregarEducacion(){

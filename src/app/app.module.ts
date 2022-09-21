@@ -17,6 +17,7 @@ import { BarraNavegacionComponent } from './components/header/barra-navegacion/b
 import { CarouselComponent } from './portfolio/carousel/carousel.component';
 import { HttpClientModule} from '@angular/common/http';
 import { LoginComponent } from './portfolio/login/login.component';
+import { interceptorProvider } from './servicios/interceptor-service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,9 @@ import { LoginComponent } from './portfolio/login/login.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

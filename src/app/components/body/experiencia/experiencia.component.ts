@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ExperienciaLaboral } from 'src/app/modelo/experiencia-laboral';
 import { ExperienciaLaboralService } from 'src/app/servicios/experiencia.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -10,6 +11,7 @@ import { ExperienciaLaboralService } from 'src/app/servicios/experiencia.service
 })
 export class ExperienciaComponent implements OnInit {
 
+
   misExperiencias: any;
   formExperiencias: FormGroup;
   puesto: string = "";
@@ -17,10 +19,12 @@ export class ExperienciaComponent implements OnInit {
   ubicacion: string = "";
   empresa: string = "";
   descripcion: string = "";
- 
+  
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
 
-
-  constructor(private dataExperiencia: ExperienciaLaboralService, private formBuilder: FormBuilder) {
+  constructor(private dataExperiencia: ExperienciaLaboralService, private formBuilder: FormBuilder,  private tokenService: TokenService) {
     this.formExperiencias = this.formBuilder.group({
       puesto:'',
       duracion: '',
@@ -35,6 +39,12 @@ export class ExperienciaComponent implements OnInit {
     this.dataExperiencia.verExperienciaLaboral().subscribe(data => {
       this.misExperiencias = data;
     });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   agregarExperienciaLaboral(){
@@ -46,11 +56,11 @@ export class ExperienciaComponent implements OnInit {
     this.descripcion = this.formExperiencias.value.descripcion;
   
     let experienciaLaboral: ExperienciaLaboral = {
-        "puesto": this.puesto,
-        "duracion": this.duracion,
-        "ubicacion": this.ubicacion,
-        "empresa": this.empresa,
-        "descripcion": this.descripcion
+      "puesto": this.puesto,
+      "duracion": this.duracion,
+      "ubicacion": this.ubicacion,
+      "empresa": this.empresa,
+      "descripcion": this.descripcion
       
     }
 

@@ -8,8 +8,9 @@
 
 .list {
   display: grid;
-  grid-template-columns: 2fr 2fr;
-  gap: 30px;
+  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-rows: auto;
+  gap: 10px;
 }
 
 .container-proyecto {
@@ -28,6 +29,110 @@ li {
 img {
   width: 200px;
   height: 100px;
-  border: 1px solid rgb(6, 108, 167);
+  border: 1px solid white;
   object-fit: cover;
+}
+
+.btn {
+  height: 40px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.623);
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.btn-edit:hover {
+  background-color: rgb(32, 181, 240);
+}
+
+.btn-elim:hover {
+  background-color: rgb(199, 29, 29);
+}
+
+.btn-agregar:hover {
+  background-color: darkcyan;
+}
+
+.btn-edit:active {
+  background-color: rgb(115, 203, 238);
+}
+
+.btn-elim:active {
+  background-color: rgb(219, 97, 97);
+}
+
+.btn-agregar:active {
+  background-color: rgb(26, 177, 177);
+}
+
+.btn-close {
+  color: gray;
+}
+
+.btn-ag-modal {
+  background-color: darkcyan;
+}
+
+.btn-edit-modal {
+  background-color: rgb(69, 189, 236);
+}
+
+.btn-elim-modal {
+  background-color: rgb(199, 29, 29);
+}
+
+.btn-close-modal {
+  background-color: rgb(62, 62, 160);
+}
+
+.btn-ag-modal:hover {
+  background-color: rgb(29, 165, 165);
+}
+
+.btn-edit-modal:hover {
+  background-color: rgb(114, 193, 224);
+}
+
+.btn-elim-modal:hover {
+  background-color: rgb(209, 70, 70);
+}
+
+.btn-close-modal:hover {
+  background-color: rgb(109, 109, 192);
+}
+
+ul {
+  list-style: none;
+}
+
+@media (min-width: 200px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+
+  img {
+    width: 150px;
+    height: 100px;
+    border: 1px solid white;
+    object-fit: cover;
+  }
+}
+
+@media (min-width: 375px) {
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: 300px 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    grid-template-columns: 300px 300px 300px;
+  }
 }

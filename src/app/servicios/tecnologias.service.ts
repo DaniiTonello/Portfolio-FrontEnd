@@ -8,7 +8,8 @@ import { Tecnologias } from '../modelo/tecnologias';
 })
 export class TecnologiasService {
 
-  tecURL= "http://localhost:8080/tecnologias/";
+  //tecURL = "https://backendtonello.herokuapp.com/tecnologias/";
+  tecURL = 'http://localhost:8080/tecnologias/';
 
   constructor(private httpTecnologias: HttpClient) { }
 

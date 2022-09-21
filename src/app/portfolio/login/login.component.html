@@ -3,15 +3,17 @@
   <div class="container">
     <div class="container-form">
       <div class="content">
-        <form action="#">
+        <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
           <p>INGRESAR</p>
           <div>
-            <label for="usuario">Email</label>
+            <label for="nombreUsuario">Usuario</label>
             <input
               type="text"
-              name="usuario"
-              id="usuario"
-              placeholder="ingresa tu email..."
+              name="nombreUsuario"
+              id="nombreUsuario"
+              placeholder="ingresa tu usuario..."
+              [(ngModel)]="nombreUsuario"
+              required
             />
           </div>
           <div>
@@ -21,14 +23,23 @@
               name="password"
               id="password"
               placeholder="ingresa tu contraseña..."
+              [(ngModel)]="password"
+              required
             />
           </div>
           <button><b>Iniciar Sesión</b></button>
         </form>
         <div class="redesSociales">
-          <img class="icon" src="../../../assets/facebook.png" alt="" />
-          <img class="icon" src="../../../assets/linkedin.png" alt="" />
-          <img class="icon" src="../../../assets/github.png" alt="" />
+          <h4>Contacto</h4>
+          <a href="https://www.facebook.com/dani.tonello.52/" target="_blank"
+            ><img class="icon" src="../../../assets/facebook.png" alt=""
+          /></a>
+          <a href="https://www.linkedin.com/in/dani-tonello/" target="_blank"
+            ><img class="icon" src="../../../assets/linkedin.png" alt=""
+          /></a>
+          <a href="https://github.com/DaniiTonello" target="_blank"
+            ><img class="icon" src="../../../assets/github.png" alt=""
+          /></a>
         </div>
       </div>
     </div>

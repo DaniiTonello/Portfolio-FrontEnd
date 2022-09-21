@@ -79,10 +79,11 @@ button {
 
 .redesSociales {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: flexbox;
   align-items: flex-end;
   padding: 10px;
+  text-align: center;
+  color: white;
 }
 
 .icon {

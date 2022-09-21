@@ -4,5 +4,4 @@ export class JwtDto {
     nombreUsuario!: string;
     authorities!: string[];
 
-    constructor() {}
 }

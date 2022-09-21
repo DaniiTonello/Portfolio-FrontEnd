@@ -13,27 +13,30 @@
           <p>{{ item.descripcion }}</p>
         </li>
         <button
-          class="btn btn-success"
+          class="btn btn-edit"
           data-toggle="modal"
           data-target="#myModalEditarExperiencia"
           (click)="buscarExperienciaLaboral(indice)"
+          *ngIf="isLogged"
         >
           editar
         </button>
         <button
-          class="btn btn-danger"
+          class="btn btn-elim"
           data-toggle="modal"
           data-target="#myModalEliminarExperiencia"
           (click)="buscarExperienciaLaboral(indice)"
+          *ngIf="isLogged"
         >
           eliminar
         </button>
       </div>
     </ul>
     <button
-      class="btn btn-dark"
+      class="btn btn-agregar"
       data-toggle="modal"
       data-target="#myModalAgregarExperiencia"
+      *ngIf="isLogged"
     >
       agregar
     </button>
@@ -46,7 +49,7 @@
       <!-- Modal Header -->
       <div class="modal-header">
         <h4 class="modal-title">Agregar experiencia laboral</h4>
-        <button type="button" class="close" data-dismiss="modal"></button>
+        <button type="button" class="btn-close" data-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
@@ -110,13 +113,13 @@
               [ngModel]="descripcion"
             />
           </div>
-          <button type="submit" class="btn btn-primary">Agregar</button>
+          <button type="submit" class="btn btn-ag-modal">Agregar</button>
         </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <button type="button" class="btn btn-close-modal" data-dismiss="modal">
           Close
         </button>
       </div>
@@ -195,13 +198,13 @@
               [ngModel]="descripcionSelect"
             />
           </div>
-          <button type="submit" class="btn btn-primary">editar</button>
+          <button type="submit" class="btn btn-edit-modal">editar</button>
         </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <button type="button" class="btn btn-close-modal" data-dismiss="modal">
           Close
         </button>
       </div>
@@ -225,13 +228,13 @@
           [formGroup]="formExperiencias"
           (ngSubmit)="eliminarExperienciaLaboral(position)"
         >
-          <button type="submit" class="btn btn-primary">eliminar</button>
+          <button type="submit" class="btn btn-elim-modal">eliminar</button>
         </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">
+        <button type="button" class="btn btn-close-modal" data-dismiss="modal">
           Close
         </button>
       </div>

@@ -8,7 +8,8 @@ import { identifierName } from '@angular/compiler';
   providedIn: 'root'
 })
 export class ExperienciaLaboralService {
-  expURL= "http://localhost:8080/experiencia-laboral/";
+  //expURL = "https://backendtonello.herokuapp.com/experiencia-laboral/";
+  expURL = 'http://localhost:8080/experiencia-laboral/';
 
   constructor(private httpExperienciaLaboral: HttpClient) { }
 

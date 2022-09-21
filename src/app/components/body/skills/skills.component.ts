@@ -4,6 +4,7 @@ import { Tecnologias } from 'src/app/modelo/tecnologias';
 import { TecnologiasService } from 'src/app/servicios/tecnologias.service';
 import { Habilidades } from 'src/app/modelo/habilidades';
 import { HabilidadesService } from 'src/app/servicios/habilidades.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-skills',
@@ -21,7 +22,11 @@ export class SkillsComponent implements OnInit {
   
   habilidad: string = "";
 
-  constructor(private dataTecnologias: TecnologiasService,private dataHabilidades: HabilidadesService, private formBuilder: FormBuilder) {
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+
+  constructor(private dataTecnologias: TecnologiasService,private dataHabilidades: HabilidadesService, private formBuilder: FormBuilder, private tokenService: TokenService) {
     this.formTecnologias = this.formBuilder.group({
       tecnologia:'',
       nivelExperiencia: ''
@@ -40,6 +45,12 @@ export class SkillsComponent implements OnInit {
     this.dataHabilidades.verHabilidades().subscribe(data => {
       this.misHabilidades = data;
     });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   agregarTecnologias(){

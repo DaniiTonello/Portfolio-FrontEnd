@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Proyectos } from 'src/app/modelo/proyectos';
 import { ProyectosService } from 'src/app/servicios/proyectos.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -19,7 +20,11 @@ export class ProyectosComponent implements OnInit {
   tecnologias: string = "";
   imagenProyecto: string = "";
 
-  constructor(private dataProyectos: ProyectosService, private formBuilder: FormBuilder) { 
+  isLogged = false;
+  isLoginFail = false;
+  roles: string[] = [];
+
+  constructor(private dataProyectos: ProyectosService, private formBuilder: FormBuilder, private tokenService: TokenService) { 
     this.formProyectos = this.formBuilder.group({
       proyecto: '',
       descripcion: '',
@@ -34,6 +39,12 @@ export class ProyectosComponent implements OnInit {
     this.dataProyectos.verProyectos().subscribe(data => {
       this.misProyectos = data;
     });
+
+    if(this.tokenService.getToken()){
+      this.isLogged = true;
+      this.isLoginFail = false;
+      this.roles = this.tokenService.getAuthorities();
+    }
   }
 
   agregarProyectos(){
