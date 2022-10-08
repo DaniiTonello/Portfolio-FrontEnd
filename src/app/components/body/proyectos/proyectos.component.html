@@ -15,11 +15,14 @@
       >
         <li>
           <img src="{{ item.imagenProyecto }}" alt="" />
-          <h3>{{ item.proyecto }}</h3>
+          <a href="{{ item.linkProyecto }}" target="_blank"
+            ><h3>{{ item.proyecto }}</h3></a
+          >
           <p>{{ item.descripcion }}</p>
           <p>{{ item.empresa }}</p>
           <p>{{ item.duracion }}</p>
           <p>{{ item.tecnologias }}</p>
+
           <button
             class="btn btn-edit"
             data-toggle="modal"
@@ -122,6 +125,17 @@
               [ngModel]="imagenProyecto"
             />
           </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Link de Proyecto:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="linkProyecto"
+              placeholder="link de proyecto"
+              name="linkProyecto"
+              [ngModel]="linkProyecto"
+            />
+          </div>
           <button type="submit" class="btn btn-ag-modal">Agregar</button>
         </form>
       </div>
@@ -216,6 +230,17 @@
               placeholder="ImagenProyecto"
               name="imagenProyecto"
               [ngModel]="imagenProyectoSelect"
+            />
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="text" class="form-label">Link de Proyecto:</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="linkProyecto"
+              placeholder="link de proyecto"
+              name="linkProyecto"
+              [ngModel]="linkProyectoSelect"
             />
           </div>
           <button type="submit" class="btn btn-edit-modal">editar</button>

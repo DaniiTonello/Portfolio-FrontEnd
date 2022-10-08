@@ -7,11 +7,13 @@
 
 .container-foto {
   padding: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .foto {
-  width: 350px;
-  height: 350px;
+  width: 330px;
+  height: 330px;
   border-radius: 50%;
   object-fit: cover;
   object-position: -10px -10px;
@@ -19,24 +21,37 @@
   border: 5px solid rgb(158, 154, 154);
 }
 
+.contenido {
+  display: block;
+  text-align: -webkit-center;
+}
+
 .nombre-apellido {
   font-size: 70px;
-  -webkit-text-stroke: 3px rgb(71, 181, 231);
-  color: transparent;
+  color: rgb(49, 182, 227);
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
 }
 
 .pais-provincia {
-  font-size: 45px;
+  font-size: 30px;
+  font-family: "Kalam", cursive;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 .container-description {
   width: 40%;
   height: auto;
-  font-size: 30px;
+  font-size: 25px;
+  font-family: "Kalam", cursive;
+  letter-spacing: 2px;
 }
 
 .button-edit {
   font-family: sans-serif;
+  display: flex;
+  justify-content: center;
 }
 
 .btn-edit-modal {

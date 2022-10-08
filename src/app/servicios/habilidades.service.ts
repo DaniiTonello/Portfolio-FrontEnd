@@ -8,8 +8,8 @@ import { Habilidades } from '../modelo/habilidades';
 })
 export class HabilidadesService {
 
-  //habURL = "https://backendtonello.herokuapp.com/habilidades/";
-  habURL = 'http://localhost:8080/habilidades/';
+  habURL = "https://backendtonello.herokuapp.com/habilidades/";
+  //habURL = 'http://localhost:8080/habilidades/';
 
   constructor(private httpHabilidades: HttpClient) { }
 

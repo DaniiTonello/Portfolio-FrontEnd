@@ -8,8 +8,8 @@ import { Proyectos } from '../modelo/proyectos';
 })
 export class ProyectosService {
 
-  //proyURL = "https://backendtonello.herokuapp.com/proyectos/";
-  proyURL = 'http://localhost:8080/proyectos/';
+  proyURL = "https://backendtonello.herokuapp.com/proyectos/";
+  //proyURL = 'http://localhost:8080/proyectos/';
 
   constructor(private httpProyectos: HttpClient) { }
 

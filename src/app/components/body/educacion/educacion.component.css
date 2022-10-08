@@ -2,22 +2,29 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  font-family: sans-serif;
+  font-family: "Kalam";
   padding: 30px;
 }
 
 .list {
   display: grid;
-  grid-template-columns: 400px 400px 400px 400px;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: minmax(100px, 1fr);
+  grid-gap: 15px;
   justify-content: center;
 }
 
 li {
   color: rgb(214, 214, 214);
   padding: 10px;
-  font-size: 18px;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.career,
+.course {
+  font-weight: bold;
+  color: rgb(60, 219, 240);
 }
 
 .btn {
@@ -89,26 +96,26 @@ li {
   background-color: rgb(109, 109, 192);
 }
 
-@media (min-width: 200px) {
+@media screen and (max-width: 375px) {
+  .container-all {
+    padding: 5px;
+  }
+
   .list {
     grid-template-columns: 1fr;
+    grid-gap: 0px 10px;
   }
 }
 
-@media (min-width: 375px) {
+@media screen and (max-width: 768px) {
   .list {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px 10px;
   }
 }
 
-@media (min-width: 768px) {
+@media screen and (max-width: 1024px) {
   .list {
-    grid-template-columns: 300px 300px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .list {
-    grid-template-columns: 300px 300px 300px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

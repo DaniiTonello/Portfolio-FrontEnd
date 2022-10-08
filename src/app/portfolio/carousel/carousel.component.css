@@ -2,10 +2,11 @@
   width: 100%;
   border: none;
   padding: 0 30px;
+  margin: 0 auto;
   color: #fff;
   flex-grow: 1;
 }
 
 h1 {
-  color: rgb(63, 188, 238);
+  color: rgb(67, 196, 247);
 }

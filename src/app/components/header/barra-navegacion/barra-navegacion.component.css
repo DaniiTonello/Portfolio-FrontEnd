@@ -29,14 +29,14 @@
 }
 
 .navegacion:hover {
-  color: rgb(63, 188, 238);
+  color: rgb(112, 206, 243);
 }
 
 .navegacion:active {
   color: aqua;
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .nav {
     width: 100%;
     background-color: transparent;

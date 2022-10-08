@@ -19,6 +19,7 @@ export class ProyectosComponent implements OnInit {
   duracion: string = "";
   tecnologias: string = "";
   imagenProyecto: string = "";
+  linkProyecto: string = "";
 
   isLogged = false;
   isLoginFail = false;
@@ -31,7 +32,8 @@ export class ProyectosComponent implements OnInit {
       empresa: '',
       duracion: '',
       tecnologias: '',
-      imagenProyecto: ''
+      imagenProyecto: '',
+      linkProyecto: ''
     });
   }
 
@@ -55,6 +57,7 @@ export class ProyectosComponent implements OnInit {
     this.duracion = this.formProyectos.value.duracion;
     this.tecnologias = this.formProyectos.value.tecnologias;
     this.imagenProyecto = this.formProyectos.value.imagenProyecto;
+    this.linkProyecto = this.formProyectos.value.linkProyecto;
     
   
     let proyectos: Proyectos = {
@@ -63,7 +66,8 @@ export class ProyectosComponent implements OnInit {
       "empresa": this.empresa,
       "duracion": this.duracion,
       "tecnologias": this.tecnologias,
-      "imagenProyecto": this.imagenProyecto
+      "imagenProyecto": this.imagenProyecto,
+      "linkProyecto": this.linkProyecto
     }
 
     this.dataProyectos.agregarProyectos(proyectos).subscribe(
@@ -83,6 +87,7 @@ export class ProyectosComponent implements OnInit {
   duracionSelect = "";
   tecnologiasSelect = "";
   imagenProyectoSelect = "";
+  linkProyectoSelect = "";
 
   buscarProyectos(item: number){
 
@@ -93,6 +98,7 @@ export class ProyectosComponent implements OnInit {
     this.duracionSelect = this.misProyectos[this.position].duracion;
     this.tecnologiasSelect = this.misProyectos[this.position].tecnologias;
     this.imagenProyectoSelect = this.misProyectos[this.position].imagenProyecto;
+    this.linkProyectoSelect = this.misProyectos[this.position].imagenProyecto;
   }
 
   editarProyectos(item: number){
@@ -104,7 +110,8 @@ export class ProyectosComponent implements OnInit {
       "empresa": this.formProyectos.value.empresa,
       "duracion": this.formProyectos.value.duracion,
       "tecnologias": this.formProyectos.value.tecnologias,
-      "imagenProyecto": this.formProyectos.value.imagenProyecto
+      "imagenProyecto": this.formProyectos.value.imagenProyecto,
+      "linkProyecto": this.formProyectos.value.linkProyecto
     }
 
     this.dataProyectos.editarProyectos(proyectos).subscribe(
