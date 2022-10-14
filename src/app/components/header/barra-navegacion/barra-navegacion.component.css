@@ -20,6 +20,7 @@
 .contenedor-navegacion {
   width: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -34,17 +35,4 @@
 
 .navegacion:active {
   color: aqua;
-}
-
-@media (max-width: 600px) {
-  .nav {
-    width: 100%;
-    background-color: transparent;
-    position: relative;
-    z-index: 10;
-
-    padding: 10px 30px;
-    flex-grow: 0;
-    flex-shrink: 0;
-  }
 }

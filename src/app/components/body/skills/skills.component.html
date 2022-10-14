@@ -1,36 +1,38 @@
 <div class="container-all">
   <div class="container-tecnologias">
-    <ul class="list">
+    <div>
       <h3 class="titulo" for="">Hard Skills</h3>
-      <div *ngFor="let item of misTecnologias; let indice = index">
-        <ul class="contenido">
-          <li>
-            <img class="iconos" src="{{ item.tecnologia }}" alt="" />
-            <p>{{ item.nivelExperiencia }}</p>
-            <div class="contenedor-botones">
-              <button
-                class="btn btn-edit"
-                data-toggle="modal"
-                data-target="#myModalEditarTecnologias"
-                (click)="buscarTecnologias(indice)"
-                *ngIf="isLogged"
-              >
-                editar
-              </button>
-              <button
-                class="btn btn-elim"
-                data-toggle="modal"
-                data-target="#myModalEliminarTecnologias"
-                (click)="buscarTecnologias(indice)"
-                *ngIf="isLogged"
-              >
-                eliminar
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </ul>
+      <ul class="list">
+        <li
+          class="contenido"
+          *ngFor="let item of misTecnologias; let indice = index"
+        >
+          <img class="iconos" src="{{ item.tecnologia }}" alt="" />
+          <p>{{ item.nivelExperiencia }}</p>
+          <div class="contenedor-botones">
+            <button
+              class="btn btn-edit"
+              data-toggle="modal"
+              data-target="#myModalEditarTecnologias"
+              (click)="buscarTecnologias(indice)"
+              *ngIf="isLogged"
+            >
+              editar
+            </button>
+            <button
+              class="btn btn-elim"
+              data-toggle="modal"
+              data-target="#myModalEliminarTecnologias"
+              (click)="buscarTecnologias(indice)"
+              *ngIf="isLogged"
+            >
+              eliminar
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
+
     <button
       class="btn btn-agregar"
       data-toggle="modal"
@@ -42,36 +44,37 @@
   </div>
 
   <div class="container-habilidades">
-    <ul class="list">
-      <h3 class="titulo" for="">Soft Skills</h3>
-      <div *ngFor="let habilidad of misHabilidades; let ubicacion = index">
-        <ul class="contenido">
-          <li>
-            <p>{{ habilidad.habilidad }}</p>
-            <div class="contenedor-botones">
-              <button
-                class="btn btn-edit"
-                data-toggle="modal"
-                data-target="#myModalEditarHabilidades"
-                (click)="buscarHabilidades(ubicacion)"
-                *ngIf="isLogged"
-              >
-                editar
-              </button>
-              <button
-                class="btn btn-elim"
-                data-toggle="modal"
-                data-target="#myModalEliminarHabilidades"
-                (click)="buscarHabilidades(ubicacion)"
-                *ngIf="isLogged"
-              >
-                eliminar
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </ul>
+    <h3 class="titulo" for="">Soft Skills</h3>
+    <div>
+      <ul class="list">
+        <li
+          class="contenido"
+          *ngFor="let habilidad of misHabilidades; let ubicacion = index"
+        >
+          <p>{{ habilidad.habilidad }}</p>
+          <div class="contenedor-botones">
+            <button
+              class="btn btn-edit"
+              data-toggle="modal"
+              data-target="#myModalEditarHabilidades"
+              (click)="buscarHabilidades(ubicacion)"
+              *ngIf="isLogged"
+            >
+              editar
+            </button>
+            <button
+              class="btn btn-elim"
+              data-toggle="modal"
+              data-target="#myModalEliminarHabilidades"
+              (click)="buscarHabilidades(ubicacion)"
+              *ngIf="isLogged"
+            >
+              eliminar
+            </button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
   <button
     class="btn btn-agregar"

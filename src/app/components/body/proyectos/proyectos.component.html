@@ -9,40 +9,38 @@
       agregar
     </button>
     <ul class="list">
-      <div
+      <li
         class="container-proyecto"
         *ngFor="let item of misProyectos; let indice = index"
       >
-        <li>
-          <img src="{{ item.imagenProyecto }}" alt="" />
-          <a href="{{ item.linkProyecto }}" target="_blank"
-            ><h3>{{ item.proyecto }}</h3></a
-          >
-          <p>{{ item.descripcion }}</p>
-          <p>{{ item.empresa }}</p>
-          <p>{{ item.duracion }}</p>
-          <p>{{ item.tecnologias }}</p>
+        <img src="{{ item.imagenProyecto }}" alt="" />
+        <a href="{{ item.linkProyecto }}" target="_blank"
+          ><h3>{{ item.proyecto }}</h3></a
+        >
+        <p>{{ item.descripcion }}</p>
+        <p>{{ item.empresa }}</p>
+        <p>{{ item.duracion }}</p>
+        <p>{{ item.tecnologias }}</p>
 
-          <button
-            class="btn btn-edit"
-            data-toggle="modal"
-            data-target="#myModalEditarProyectos"
-            (click)="buscarProyectos(indice)"
-            *ngIf="isLogged"
-          >
-            editar
-          </button>
-          <button
-            class="btn btn-elim"
-            data-toggle="modal"
-            data-target="#myModalEliminarProyecto"
-            (click)="buscarProyectos(indice)"
-            *ngIf="isLogged"
-          >
-            eliminar
-          </button>
-        </li>
-      </div>
+        <button
+          class="btn btn-edit"
+          data-toggle="modal"
+          data-target="#myModalEditarProyectos"
+          (click)="buscarProyectos(indice)"
+          *ngIf="isLogged"
+        >
+          editar
+        </button>
+        <button
+          class="btn btn-elim"
+          data-toggle="modal"
+          data-target="#myModalEliminarProyecto"
+          (click)="buscarProyectos(indice)"
+          *ngIf="isLogged"
+        >
+          eliminar
+        </button>
+      </li>
     </ul>
   </div>
 </div>

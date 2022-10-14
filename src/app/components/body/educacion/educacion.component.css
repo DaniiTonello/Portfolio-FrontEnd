@@ -96,14 +96,9 @@ li {
   background-color: rgb(109, 109, 192);
 }
 
-@media screen and (max-width: 375px) {
-  .container-all {
-    padding: 5px;
-  }
-
+@media screen and (max-width: 1024px) {
   .list {
-    grid-template-columns: 1fr;
-    grid-gap: 0px 10px;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -114,8 +109,13 @@ li {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 500px) {
+  .container-all {
+    padding: 5px;
+  }
+
   .list {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 0px 10px;
   }
 }

@@ -1,17 +1,15 @@
 <div class="container-all">
   <div class="container-descripcion">
     <ul class="list">
-      <div
+      <li
         class="container-experiencia"
         *ngFor="let item of misExperiencias; let indice = index"
       >
-        <li>
-          <p>{{ item.duracion }}</p>
-          <p>{{ item.puesto }}</p>
-          <p>{{ item.empresa }}</p>
-          <p>{{ item.ubicacion }}</p>
-          <p>{{ item.descripcion }}</p>
-        </li>
+        <p>{{ item.duracion }}</p>
+        <p>{{ item.puesto }}</p>
+        <p>{{ item.empresa }}</p>
+        <p>{{ item.ubicacion }}</p>
+        <p>{{ item.descripcion }}</p>
         <button
           class="btn btn-edit"
           data-toggle="modal"
@@ -30,7 +28,7 @@
         >
           eliminar
         </button>
-      </div>
+      </li>
     </ul>
     <button
       class="btn btn-agregar"

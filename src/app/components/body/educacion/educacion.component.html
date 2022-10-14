@@ -9,16 +9,14 @@
       agregar
     </button>
     <ul class="list">
-      <div
+      <li
         class="container-carrera"
         *ngFor="let item of miEducacion; let indice = index"
       >
-        <li>
-          <p>{{ item.duracion }}</p>
-          <p>{{ item.establecimiento }}</p>
-          <p class="career">{{ item.carrera }}</p>
-          <p class="course">{{ item.curso }}</p>
-        </li>
+        <p>{{ item.duracion }}</p>
+        <p>{{ item.establecimiento }}</p>
+        <p class="career">{{ item.carrera }}</p>
+        <p class="course">{{ item.curso }}</p>
         <button
           class="btn btn-edit"
           data-toggle="modal"
@@ -37,7 +35,7 @@
         >
           eliminar
         </button>
-      </div>
+      </li>
     </ul>
   </div>
 </div>
