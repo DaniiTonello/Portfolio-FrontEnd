@@ -36,3 +36,15 @@
 .navegacion:active {
   color: aqua;
 }
+
+@media screen and (max-width: 768px) {
+  .nav {
+    padding: 15px 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nav {
+    padding: 15px 10px;
+  }
+}

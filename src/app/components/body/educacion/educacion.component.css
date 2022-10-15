@@ -8,17 +8,24 @@
 
 .list {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: minmax(100px, 1fr);
   grid-gap: 15px;
   justify-content: center;
 }
 
+ul {
+  list-style: none;
+}
+
 li {
-  color: rgb(214, 214, 214);
+  color: #fff;
   padding: 10px;
   font-weight: 300;
   font-size: 20px;
+  background: rgba(255, 255, 255, 0.096);
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 rgba(29, 29, 29, 0.203);
 }
 
 .career,
@@ -105,7 +112,7 @@ li {
 @media screen and (max-width: 768px) {
   .list {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px 10px;
+    grid-gap: 15px 10px;
   }
 }
 
@@ -116,6 +123,6 @@ li {
 
   .list {
     grid-template-columns: 1fr;
-    grid-gap: 0px 10px;
+    grid-row: 15px;
   }
 }

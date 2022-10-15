@@ -15,7 +15,7 @@
 }
 
 .container-proyecto {
-  color: rgba(255, 255, 255, 0.904);
+  color: #fff;
   font-size: 28px;
   grid-column: span 2;
   padding: 20px 0;
@@ -26,6 +26,13 @@ li {
   padding: 10px;
   font-weight: 300;
   font-size: 20px;
+  background: rgba(255, 255, 255, 0.096);
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 rgba(29, 29, 29, 0.203);
+}
+
+ul {
+  list-style: none;
 }
 
 .btn {
@@ -106,13 +113,13 @@ li {
 @media screen and (max-width: 768px) {
   .list {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px 10px;
+    grid-gap: 15px 10px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .list {
     grid-template-columns: 1fr;
-    grid-gap: 0px 10px;
+    grid-row: 15px;
   }
 }

@@ -1,7 +1,5 @@
 .container-all {
   width: 100%;
-  display: flexbox;
-  justify-content: center;
   font-family: "Kalam";
 }
 
@@ -20,8 +18,15 @@
   text-align: center;
 }
 
+li {
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.096);
+  border-radius: 10px;
+  box-shadow: 0 0 6px 0 rgba(29, 29, 29, 0.203);
+}
+
 .fab {
-  color: rgb(214, 214, 214);
+  color: rgb(237, 233, 233);
   font-size: 30px;
   padding: 5px;
 }
@@ -107,7 +112,7 @@
 p {
   font-size: 22px;
   margin-top: 5px;
-  color: rgba(216, 202, 202, 0.849);
+  color: rgba(239, 232, 232, 0.943);
 }
 
 ul {
@@ -124,13 +129,13 @@ ul {
 @media screen and (max-width: 768px) {
   .list {
     grid-template-columns: 1fr 1fr;
-    grid-gap: 5px 10px;
+    grid-gap: 15px 10px;
   }
 }
 
 @media screen and (max-width: 450px) {
   .list {
     grid-template-columns: 1fr;
-    grid-gap: 0px 10px;
+    grid-row: 15px;
   }
 }

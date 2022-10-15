@@ -124,3 +124,39 @@
   color: rgb(252, 252, 252);
   border: 2px solid #cc120bc9;
 }
+
+@media screen and (max-width: 1200px) {
+  .container-description {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nombre-apellido {
+    font-size: 50px;
+  }
+
+  .pais-provincia {
+    font-size: 30px;
+  }
+
+  .container-description {
+    width: 80%;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .nombre-apellido {
+    font-size: 50px;
+  }
+
+  .pais-provincia {
+    font-size: 25px;
+  }
+
+  .container-description {
+    width: 80%;
+    font-size: 18px;
+  }
+}

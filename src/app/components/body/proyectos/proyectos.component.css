@@ -7,10 +7,7 @@
 }
 
 .list {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: minmax(100px, auto);
-  gap: 10px;
+  display: block;
 }
 
 .container-proyecto {
@@ -21,7 +18,7 @@
 }
 
 li {
-  color: rgb(214, 214, 214);
+  color: #fff;
   padding: 10px;
   font-weight: 300;
   font-size: 20px;
@@ -118,28 +115,4 @@ a:active {
 
 ul {
   list-style: none;
-}
-
-@media screen and (max-width: 1024px) {
-  .list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .list {
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 5px 10px;
-  }
-}
-
-@media screen and (max-width: 450px) {
-  .container-all {
-    padding: 5px;
-  }
-
-  .list {
-    grid-template-columns: 1fr;
-    grid-gap: 0px 10px;
-  }
 }
